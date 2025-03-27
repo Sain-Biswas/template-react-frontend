@@ -1,3 +1,5 @@
+import path from "path";
+
 import { defineConfig } from "vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -16,6 +18,12 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  resolve: {
+    alias: {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, no-undef, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   test: {
     globals: true,
     environment: "jsdom",
